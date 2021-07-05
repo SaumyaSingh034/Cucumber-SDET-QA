@@ -25,7 +25,7 @@ public class LoginPage {
 	WebElement loginBtn;
 	
 	
-	LoginPage(WebDriver rdriver){
+	public LoginPage(WebDriver rdriver){
 		ldriver = rdriver;
 		PageFactory.initElements(rdriver, this);
 		
@@ -36,6 +36,24 @@ public class LoginPage {
 	public String titleOfPage()
 	{
 		return ldriver.getTitle();
+	}
+	
+	public void setUserName(String username)
+	{
+		emailId.clear();
+		emailId.sendKeys(username);
+	}
+	
+	public void setPassword(String pass)
+	{
+		password.clear();
+		password.sendKeys(pass);
+	}
+	
+	public HomePage clickOnLoginBtn()
+	{
+		loginBtn.click();
+		return new HomePage(ldriver);
 	}
 
 }
