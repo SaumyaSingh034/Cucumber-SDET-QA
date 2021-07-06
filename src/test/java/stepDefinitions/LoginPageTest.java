@@ -55,7 +55,8 @@ public class LoginPageTest {
 
 	@Then("Page title of the page should be {string}")
 	public void page_title_of_the_page_should_be(String actualTitle) {
-		if(driver.getPageSource().contains("Login was unsuccessful."))
+		if(driver.getPageSource().contains("Login was unsuccessful. Please correct the errors and try again.\r\n" + 
+				"The credentials provided are incorrect"))
 		{
 			driver.quit();
 			Assert.assertTrue(false);
